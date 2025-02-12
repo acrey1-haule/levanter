@@ -7,7 +7,7 @@
   "env": {
     "ALWAYS_ONLINE": {
       "description": "show bot number last seen as online",
-      "required": false,
+      "required": true,
       "value": "false"
     },
     "LOG_MSG": {
@@ -32,7 +32,7 @@
     },
     "STICKER_PACKNAME": {
       "description": "sticker pack info",
-      "required": false,
+      "required": true,
       "value": "❤️,LyFE"
     },
     "HEROKU_APP_NAME": {
@@ -70,7 +70,7 @@
     },
     "ANTILINK_MSG": {
       "description": "Message send when antilink and action is kick.",
-      "required": false,
+      "required": true,
       "value": "_Antilink Detected &mention kicked_"
     },
     "ANTISPAM_MSG": {
@@ -100,7 +100,7 @@
     },
     "AUTO_STATUS_VIEW": {
       "description": "view others status",
-      "required": false,
+      "required": true,
       "value": "false"
     },
     "SEND_READ": {
@@ -110,12 +110,12 @@
     },
     "AJOIN": {
       "description": "Accept Group join request(Group privacy)",
-      "required": false,
+      "required": true,
       "value": "true"
     },
     "PERSONAL_MESSAGE": {
       "description": "Send a Welcome message on personal chat",
-      "required": false,
+      "required": true,
       "value": "null"
     },
     "DISABLE_START_MESSAGE": {

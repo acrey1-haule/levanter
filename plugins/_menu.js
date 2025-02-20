@@ -7,6 +7,7 @@ const {
   getDate,
   getPlatform,
 } = require('../lib/')
+
 bot.addCommand(
   {
     pattern: 'help ?(.*)',
@@ -38,6 +39,23 @@ bot.addCommand(
 ╰────────────────
 ╭────────────────
 `
+
+    // Always Online and Typing
+    CMD_HELP += `│ Always Online: ${ctx.ALWAYS_ONLINE === 'true' ? 'Enabled' : 'Disabled'}\n`
+    CMD_HELP += `│ Always Typing: ${ctx.ALWAYS_TYPING === 'true' ? 'Enabled' : 'Disabled'}\n`
+    
+    // Auto Status View
+    CMD_HELP += `│ Auto Status View: ${ctx.AUTO_STATUS_VIEW === 'true' ? 'Enabled' : 'Disabled'}\n`
+    
+    // React Status
+    CMD_HELP += `│ React to Status: 🌺🌻🌷🌼🪻⚘️🤙👍\n`
+
+    // Random Reactions
+    CMD_HELP += `│ Random React to Messages: 🎉⚽️🎉👍\n`
+
+    // Tag All People in Group
+    CMD_HELP += `│ Tag All People in Group: ${ctx.TELL_ALL_PEOPLE === 'true' ? 'Enabled' : 'Disabled'}\n`
+
     sorted.map(async (command, i) => {
       if (command.dontAddCommandList === false && command.pattern !== undefined) {
         CMD_HELP += `│ ${i + 1} ${addSpace(i + 1, sorted.length)}${textToStylist(
@@ -70,9 +88,21 @@ bot.addCommand(
         msg += `${index + 1} ${command.name}\n${command.desc}\n\n`
       }
     })
+    
+    // Always Online and Typing
+    msg += `Always Online: ${ctx.ALWAYS_ONLINE === 'true' ? 'Enabled' : 'Disabled'}\n`
+    msg += `Always Typing: ${ctx.ALWAYS_TYPING === 'true' ? 'Enabled' : 'Disabled'}\n`
+    
+    // Auto Status View
+    msg += `Auto Status View: ${ctx.AUTO_STATUS_VIEW === 'true' ? 'Enabled' : 'Disabled'}\n`
+    
+    // Random Reactions
+    msg += `Random Reactions to Messages: 🎉⚽️🎉👍\n`
+
     await message.send('```' + msg.trim() + '```')
   }
 )
+
 bot.addCommand(
   {
     pattern: 'menu ?(.*)',
@@ -104,6 +134,13 @@ bot.addCommand(
 ┃❃│ Platform : ${getPlatform()}
 ┃❃╰───────────────
 ╰═════════════════⊷\`\`\`\n`
+
+    // Always Online, Typing, Status View, Reactions
+    msg += `┃❃│ Always Online: ${ctx.ALWAYS_ONLINE === 'true' ? 'Enabled' : 'Disabled'}\n`
+    msg += `┃❃│ Always Typing: ${ctx.ALWAYS_TYPING === 'true' ? 'Enabled' : 'Disabled'}\n`
+    msg += `┃❃│ Auto Status View: ${ctx.AUTO_STATUS_VIEW === 'true' ? 'Enabled' : 'Disabled'}\n`
+    msg += `┃❃│ React to Status: 🌺🌻🌷🌼🪻⚘️🤙👍\n`
+    msg += `┃❃│ Random React to Messages: 🎉⚽️🎉👍\n`
 
     if (match && commands[match]) {
       msg += ` ╭─❏ ${textToStylist(match.toLowerCase(), 'smallcaps')} ❏\n`

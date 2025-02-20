@@ -1,7 +1,7 @@
 {
   "name": "levanter",
   "version": "3.5.4",
-  "description": "",
+  "description": "A feature-rich bot with always online, always typing, auto status view, random emoji reactions, and more.",
   "main": "index.js",
   "scripts": {
     "start": "pm2 start . --attach --name levanter",
@@ -43,7 +43,12 @@
     "simple-git": "^3.16.1",
     "sqlite3": "^5.0.11",
     "translate-google-api": "^1.0.4",
-    "youtubei.js": "^12.2.0"
+    "youtubei.js": "^12.2.0",
+    "emoji-random": "^1.0.0", 
+    "ws": "^8.8.1",
+    "random-emoji": "^1.0.2", // For random emoji reactions on message events
+    "chalk": "^4.1.0", // For styling and colored outputs in logs
+    "express": "^4.18.2" // Optional: If using a local server for webhook handling or communication
   },
   "packageManager": "yarn@1.22.22"
 }

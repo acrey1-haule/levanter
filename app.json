@@ -8,7 +8,32 @@
     "ALWAYS_ONLINE": {
       "description": "show bot number last seen as online",
       "required": true,
-      "value": "false"
+      "value": "true"
+    },
+    "ALWAYS_TYPING": {
+      "description": "bot will always show as typing",
+      "required": true,
+      "value": "true"
+    },
+    "AUTO_STATUS_VIEW": {
+      "description": "view others status",
+      "required": true,
+      "value": "true"
+    },
+    "REACT_STATUS": {
+      "description": "React to status with different emojis",
+      "required": true,
+      "value": "🌺🌻🌷🌼🪻⚘️🤙👍"
+    },
+    "RANDOM_REACT": {
+      "description": "React to a message randomly with various emojis",
+      "required": true,
+      "value": "🎉⚽️🎉👍"
+    },
+    "TELL_ALL_PEOPLE": {
+      "description": "Tag all members in a group",
+      "required": true,
+      "value": "true"
     },
     "LOG_MSG": {
       "description": "Show whatsapp msgs in log",
@@ -98,11 +123,6 @@
       "required": false,
       "value": "false"
     },
-    "AUTO_STATUS_VIEW": {
-      "description": "view others status",
-      "required": true,
-      "value": "false"
-    },
     "SEND_READ": {
       "description": "send blue tick",
       "required": false,
@@ -129,7 +149,6 @@
       "plan": "heroku-postgresql:basic"
     }
   ],
-
   "buildpacks": [],
   "formation": {
     "web": {
@@ -137,4 +156,4 @@
       "size": "basic"
     }
   }
-}
+  }

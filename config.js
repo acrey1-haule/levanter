@@ -3,10 +3,14 @@ const { existsSync } = require('fs')
 const path = require('path')
 const configPath = path.join(__dirname, './config.env')
 const databasePath = path.join(__dirname, './database.db')
+
 if (existsSync(configPath)) require('dotenv').config({ path: configPath })
-const toBool = (x) => x == 'true'
+
+const toBool = (x) => x === 'true'
+
 const DATABASE_URL =
   process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL
+
 module.exports = {
   VERSION: require('./package.json').version,
   SESSION_ID: (process.env.SESSION_ID || '').trim(),
@@ -33,11 +37,11 @@ module.exports = {
   HEROKU_API_KEY: process.env.HEROKU_API_KEY,
   BRANCH: 'master',
   STICKER_PACKNAME: process.env.STICKER_PACKNAME || '❤️,LyFE',
-  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE,
+  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || 'false', // Feature: Always show the bot as online
   LOG_MSG: process.env.LOG_MSG || 'true',
   RMBG_KEY: process.env.RMBG_KEY || 'null',
   BAILEYS_LOG_LVL: process.env.BAILEYS_LOG_LVL || 'silent',
-  LANG: (process.env.LANGUAG || 'en').toLowerCase(),
+  LANG: (process.env.LANG || 'en').toLowerCase(),
   WARN_LIMIT: process.env.WARN_LIMIT || 3,
   FORCE_LOGOUT: process.env.FORCE_LOGOUT || 'false',
   BRAINSHOP: process.env.BRAINSHOP || '159501,6pq8dPiYt7PdqHz3',
@@ -50,7 +54,7 @@ module.exports = {
   MAX_UPLOAD: process.env.MAX_UPLOAD || 230,
   REJECT_CALL: process.env.REJECT_CALL,
   VPS: toBool(process.env.VPS),
-  AUTO_STATUS_VIEW: (process.env.AUTO_STATUS_VIEW || 'true').trim(),
+  AUTO_STATUS_VIEW: (process.env.AUTO_STATUS_VIEW || 'true').trim(), // Feature: Auto view others' statuses
   SEND_READ: process.env.SEND_READ,
   KOYEB: toBool(process.env.KOYEB),
   KOYEB_NAME: (process.env.KOYEB_NAME || '').trim(),
@@ -58,7 +62,7 @@ module.exports = {
   AJOIN: process.env.AJOIN || 'true',
   GPT: (process.env.GPT || 'free').trim(),
   MODEL: (process.env.MODEL || 'gpt-3.5-turbo').trim(),
-  APPROVE: (process.env.APPROVE || 'true).trim(),
+  APPROVE: (process.env.APPROVE || 'true').trim(),
   ANTI_DELETE: (process.env.ANTI_DELETE || 'true').trim(),
   PERSONAL_MESSAGE: (process.env.PERSONAL_MESSAGE || 'true').trim(),
   DISABLE_START_MESSAGE: process.env.DISABLE_START_MESSAGE || 'false',
@@ -75,11 +79,17 @@ module.exports = {
   LIST_TYPE: (process.env.LIST_TYPE || 'text').trim(),
   BING_COOKIE: (process.env.BING_COOKIE || '').trim(),
   GEMINI_API_KEY: (process.env.GEMINI_API_KEY || '').trim(),
-  GROUP_ADMINS: process.env.GROUP_ADMINS || 'true,
+  GROUP_ADMINS: process.env.GROUP_ADMINS || 'true',
   RENDER_NAME: (process.env.RENDER_NAME || '').trim(),
   RENDER_API_KEY: (process.env.RENDER_API_KEY || '').trim(),
   TIMEZONE: process.env.TIMEZONE,
-  CMD_REACTION: process.env.CMD_REACTION || 'true',
+  CMD_REACTION: process.env.CMD_REACTION || 'true', // Feature: React to commands with emoji
   AUTO_UPDATE: process.env.AUTO_UPDATE || 'true',
   WHITE_LIST: process.env.WHITE_LIST || '',
-}
+  
+  // Features from earlier:
+  ALWAYS_TYPING: process.env.ALWAYS_TYPING || 'false', // Feature: Always show typing status
+  REACT_STATUS_EMOJIS: process.env.REACT_STATUS_EMOJIS || '🌺🌻🌷🌼🪻⚘️🤙👍', // Feature: React to statuses with different emojis
+  RANDOM_REACT: process.env.RANDOM_REACT || '🎉⚽️🎉👍', // Feature: React randomly to messages
+  TALL_ALL_PEOPLE: process.env.TALL_ALL_PEOPLE || 'false', // Feature: Mention all people in a group
+  }
